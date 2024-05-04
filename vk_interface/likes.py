@@ -1,3 +1,4 @@
+from time import sleep
 from vk_interface.account import Account
 from vk_api.exceptions import VkApiError
 
@@ -18,7 +19,7 @@ class Likes(Account):
             status = self.client.likes.add(owner_id=kwarg['user']['id'], 
                                            type=kwarg['post']['type'], 
                                            item_id=kwarg['post']['id'])
-            
+            sleep(0.3)
             self.message.print_add_like_status(kwarg['user'], 
                                                kwarg['post_index'])
             return status
